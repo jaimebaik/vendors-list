@@ -7,6 +7,8 @@ import customStyleSheet from './lib/customStyleSheet';
 import evergreenIcon from './img/evergreen_icon.png';
 import getImageUri from './utils/getImageUri';
 
+import Vendors from './Vendors';
+
 const GET_USER_QUERY = gql`
   query GetUser($id: Int!) {
     user(id: $id) {
@@ -45,14 +47,15 @@ function App() {
 
   return (
     <div className={css(styles.container)}>
-      <img
+      {/* <img
         className={css(styles.logo)}
         src={getImageUri(evergreenIcon)}
         alt="logo"
       />
       <Text title1>
         {titleText}
-      </Text>
+      </Text> */}
+      <Vendors />
     </div>
   );
 }
