@@ -28,13 +28,42 @@ function Vendors() {
   if (loading) console.log('Loading...');
   if (error) console.log(`Error! ${error.message}`);
   
-  console.log(data);
+  const vendors = data && data.vendors;
+  const vendorsArray = vendors ? vendors.map((vendor, i)=> {
+    return (
+      <tr key={'row'+i}>
+        <td key={'cell'+i}>
+          <div key={'main'+i}>
+            <div >{vendor.name}</div>
+            <div>{vendor.description}</div>
+            <a href={vendor.externalLink}>{vendor.externalLink}</a>
+          </div>
+        </td>
+        <td>{vendor.category}</td>
+        <td>{vendor.status}</td>
+        <td>{vendor.tier}</td>
+        <td>{vendor.risk}</td>
+      </tr>
+    )
+  }) : <></>;
 
   return (
     <div>
-      <Text title2>
+      {/* <Text title2>
         hello
-      </Text>
+      </Text> */}
+      <table>
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Risk</th>
+            <th>Tier</th>
+          </tr>
+        </thead>
+        <tbody>{vendorsArray}</tbody>
+      </table>
     </div>
   );
 }
