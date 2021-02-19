@@ -2,10 +2,7 @@ import React from 'react';
 import { css } from 'aphrodite';
 import { gql, useQuery } from '@apollo/client';
 
-import Text from './lib/Text';
-import customStyleSheet from './lib/customStyleSheet';
-import evergreenIcon from './img/evergreen_icon.png';
-import getImageUri from './utils/getImageUri';
+import './vendors.css';
 
 const GET_VENDORS_QUERY = gql`
   query GetVendors {
@@ -49,9 +46,6 @@ function Vendors() {
 
   return (
     <div>
-      {/* <Text title2>
-        hello
-      </Text> */}
       <table>
         <thead>
           <tr>
